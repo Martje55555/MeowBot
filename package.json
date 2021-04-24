@@ -1,0 +1,16 @@
+{
+  "name": "discordmeowbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jesus Martinez",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "querystring": "^0.2.1",
+    "r2": "^2.0.1"
+  }
+}

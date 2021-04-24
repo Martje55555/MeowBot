@@ -8,7 +8,8 @@ const r2 = require('r2');
 const DOG_API_URL = "https://api.thedogapi.com/"
 const DOG_API_KEY = "cb5889c2-c0ee-449b-9e5e-274d83a57126";
 const DISCORD_TOKEN = 'ODM1MzU3MzEwNTQwOTcyMDUy.YIORHw.uSl8p34FXj0gtUkS1kvozcUlLSE';
-
+const Meme = require('meme-api');
+const { random } = require('meme-api');
 // function returns random number for speak command
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
@@ -59,7 +60,7 @@ client.on('message', async msg => {
     }
 
     if (command === 'victor') {
-        msg.channel.send('carry me OhSoSkilled', { tts: true });
+        msg.channel.send('the coochie consumer', { tts: true });
     }
 
     if (command === 'cat') {
@@ -80,6 +81,42 @@ client.on('message', async msg => {
         //callJokeResponse(msg);
     }
 
+    if(command === 'meme') {
+        callMeme(msg);
+    }
+
+    /// ASYNC FUNCTIONS BELOW /////
+/////////////////////////////////////////////////////////////////////////////////////////   
+
+// sends meme to channel
+    async function callMeme(msg) {
+        try {
+
+            var m = await memeReceived();
+
+            console.log(m);
+
+            msg.channel.send({files: [m.url]});
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+// handles receiving meme
+    async function memeReceived() {
+        const num = randomNum(1, 100);
+        try {
+            var response = await r2.get('https://api.imgflip.com/get_memes').json
+           
+            
+        } catch (e) {
+            console.log(e)
+        }
+        console.log(response.data.memes[num]);
+        return response.data.memes[num];
+    }   
+
+    // sends joke to channel
     async function callJoke(msg) {
         try {
             var j = await jokeReceived();
@@ -106,6 +143,7 @@ client.on('message', async msg => {
         }
     }
 
+    // handles jokes api
     async function jokeReceived() {
         try {
             var response = await r2.get('https://v2.jokeapi.dev/joke/Any?type=single').json
@@ -142,7 +180,7 @@ client.on('message', async msg => {
     }
     
 
-    // Function to handle file recieved from DOG API
+    // sends image to channel
     async function messageRecieved(message) {
         try {
             var images = await loadImage(message.author.username);
@@ -159,7 +197,7 @@ client.on('message', async msg => {
             console.log(error)
         }
     }
-
+    // handles dog api
     async function loadImage(sub_id) {
 
         var headers = {

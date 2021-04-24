@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "meme-api": "^1.0.0",
     "querystring": "^0.2.1",
     "r2": "^2.0.1"
   }

@@ -110,14 +110,17 @@ client.on('message', async msg => {
     async function memeReceived() {
         const num = randomNum(1, 100);
         try {
-            var response = await r2.get('https://api.imgflip.com/get_memes').json
-           
+            var response = await r2.get('https://meme-api.herokuapp.com/gimme').json
+           // https://meme-api.herokuapp.com/gimme
+           // https://api.imgflip.com/get_memes
             
         } catch (e) {
             console.log(e)
         }
-        console.log(response.data.memes[num]);
-        return response.data.memes[num];
+        //console.log(response.data.memes[num]);
+       // return response.data.memes[num];
+       console.log(response)
+       return response;
     }   
 
     // sends joke to channel

@@ -89,6 +89,10 @@ client.on('message', async msg => {
         callMeme(msg);
     }
 
+    if(command === 'help') {
+        msg.channel.send(`^speak\n^cat\n^dog\n^chuck\n^joke\n^meme`);
+    }
+
     /// ASYNC FUNCTIONS BELOW /////
 /////////////////////////////////////////////////////////////////////////////////////////   
 

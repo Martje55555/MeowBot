@@ -63,6 +63,10 @@ client.on('message', async msg => {
         msg.channel.send('the coochie consumer', { tts: true });
     }
 
+    if (command === 'max') {
+        msg.channel.send('The Dude')
+    }
+
     if (command === 'cat') {
         const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
         msg.channel.send(file);

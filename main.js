@@ -6,11 +6,10 @@ const prefix = '^';
 const querystring = require('querystring');
 const r2 = require('r2');
 const DOG_API_URL = "https://api.thedogapi.com/"
-const DOG_API_KEY = "cb5889c2-c0ee-449b-9e5e-274d83a57126";
-const DISCORD_TOKEN = 'ODM1MzU3MzEwNTQwOTcyMDUy.YIORHw.uSl8p34FXj0gtUkS1kvozcUlLSE';
 const Meme = require('meme-api');
 const { random } = require('meme-api');
-// function returns random number for speak command
+
+// function returns random number
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -35,46 +34,6 @@ client.on('message', async msg => {
         }
     }
 
-    if (command === 'buddy') {
-        msg.channel.send('IS GAY', { tts: true });
-    }
-
-    if (command === 'blackjesus') {
-        msg.channel.send('is AWESOME!', { tts: true });
-    }
-
-    if (command === 'ricky') {
-        msg.channel.send('The Big Kahuna', { tts: true });
-    }
-
-    if (command === 'adam' || command === 'shapoopy') {
-        msg.channel.send('lil sussy baka', { tts: true });
-    }
-
-    if (command === 'alex' || command === 'slimmprimo') {
-        msg.channel.send('is queer', { tts: true });
-    }
-
-    if (command === 'juan') {
-        msg.channel.send('fisto your ass', { tts: true });
-    }
-
-    if (command === 'victor') {
-        msg.channel.send('the coochie consumer', { tts: true });
-    }
-
-    if (command === 'max') {
-        msg.channel.send('The Dude')
-    }
-
-    if(command === 'leo') {
-        msg.channel.send('chupapi munano', { tts: true });
-    }
-
-    if(command === 'jose') {
-        msg.channel.send('ez money sniper', { tts: true });
-    }
-
     if (command === 'cat') {
         const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
         msg.channel.send(file);
@@ -97,14 +56,20 @@ client.on('message', async msg => {
         callMeme(msg);
     }
 
+    // sends a random dumb quote trump has said in the past
     if(command === 'trump') {
         const comment = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
         msg.channel.send(`Donald Trump ${comment.appeared_at}\n${comment.value}`);
     }
 
+    // TO DO // pokemon api attemp to send pokemon name, abilities and stats
     if(command === 'pokemon') {
-        const comment = await fetch('https://pokeapi.co/api/v2/').then(response => response.json());
+        const num = randomNum(1,1118);
 
+        const pok = await fetch(`https://pokeapi.co/api/v2/pokemon/${num}`).then(response => response.json());
+        msg.channel.send(`${pok.forms[0].name}\n${pok.stats.base_stat}\n${pok.types.type}`)
+        console.log(pok)
+        console.log(pok.forms[0].name)
     }
 
     if(command === 'help') {
@@ -255,4 +220,4 @@ client.on('message', async msg => {
     }
 });
 
-client.login('ODM1MzU3MzEwNTQwOTcyMDUy.YIORHw.uSl8p34FXj0gtUkS1kvozcUlLSE');
+client.login(TOKEN);

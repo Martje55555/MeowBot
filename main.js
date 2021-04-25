@@ -9,9 +9,9 @@ const DOG_API_URL = "https://api.thedogapi.com/"
 const Meme = require('meme-api');
 const { random } = require('meme-api');
 const config = require('./config.js');
-
-const TOKEN = config.TOKEN;
-const DOG_API_KEY = config.DOG_API_KEY;
+require('dotenv').config();
+const TOKEN = process.env.TOKEN;
+const DOG_API_KEY = process.env.DOG_API_KEY;
 
 // function returns random number
 const randomNum = (min, max) => {

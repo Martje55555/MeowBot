@@ -93,9 +93,15 @@ client.on('message', async msg => {
         callMeme(msg);
     }
 
+    if(command === 'trump') {
+        const { comment } = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
+        msg.channel.send(comment.value);
+    }
+
     if(command === 'help') {
         msg.channel.send(`^speak\n^cat\n^dog\n^chuck\n^joke\n^meme`);
     }
+
 
     /// ASYNC FUNCTIONS BELOW /////
 /////////////////////////////////////////////////////////////////////////////////////////   

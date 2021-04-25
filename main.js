@@ -71,6 +71,10 @@ client.on('message', async msg => {
         msg.channel.send('chupapi munano', { tts: true });
     }
 
+    if(command === 'jose') {
+        msg.channel.send('ez money sniper', { tts: true });
+    }
+
     if (command === 'cat') {
         const { file } = await fetch('https://aws.random.cat/meow').then(response => response.json());
         msg.channel.send(file);
@@ -96,6 +100,11 @@ client.on('message', async msg => {
     if(command === 'trump') {
         const comment = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
         msg.channel.send(`Donald Trump ${comment.appeared_at}\n${comment.value}`);
+    }
+
+    if(command === 'pokemon') {
+        const comment = await fetch('https://pokeapi.co/api/v2/').then(response => response.json());
+
     }
 
     if(command === 'help') {

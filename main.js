@@ -123,7 +123,7 @@ client.on('message', async msg => {
         }
         //console.log(response.data.memes[num]);
        // return response.data.memes[num];
-       console.log(response)
+       //console.log(response)
        return response;
     }   
 

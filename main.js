@@ -8,8 +8,8 @@ const r2 = require('r2');
 const DOG_API_URL = "https://api.thedogapi.com/"
 const Meme = require('meme-api');
 const { random } = require('meme-api');
-const config = require('./config.js');
-require('dotenv').config();
+//const config = require('./config.json');
+//require('dotenv').config();
 const TOKEN = process.env.TOKEN;
 const DOG_API_KEY = process.env.DOG_API_KEY;
 

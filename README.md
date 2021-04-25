@@ -11,3 +11,4 @@ COMMANDS-
 4. ^chuck - returns a chuck norris pun or joke
 5. ^meme - returns a meme scrapped from top reddit memes
 6. ^speak - returns either MEOW or WOOF and also tts' it
+7. ^trump - returns a stupid thing trump has said in the past

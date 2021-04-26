@@ -59,7 +59,7 @@ client.on('message', async msg => {
     // sends a random dumb quote trump has said in the past
     if(command === 'trump') {
         const comment = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
-        const date = comment.appeared_at.slice(0,9);
+        const date = comment.appeared_at.slice(0,10);
         msg.channel.send('```' + 'Donald Trump ' + date + '-\n' + comment.value + '```');
     }
 

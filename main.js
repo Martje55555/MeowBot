@@ -60,7 +60,7 @@ client.on('message', async msg => {
     if(command === 'trump') {
         const comment = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
         const date = comment.appeared_at.slice(0,10);
-        msg.channel.send('```' + 'Donald Trump ' + date + '-\n' + comment.value + '```');
+        msg.channel.send('```' + 'Donald Trump ' + date + '\n' + comment.value + '```');
     }
 
     // TO DO // pokemon api attemp to send pokemon name, abilities and stats

@@ -6,10 +6,7 @@ const prefix = '^';
 const querystring = require('querystring');
 const r2 = require('r2');
 const DOG_API_URL = "https://api.thedogapi.com/"
-const Meme = require('meme-api');
-const { random } = require('meme-api');
 //const config = require('./config.json');
-//require('dotenv').config();
 const TOKEN = process.env.TOKEN;
 const DOG_API_KEY = process.env.DOG_API_KEY;
 
@@ -17,7 +14,6 @@ const DOG_API_KEY = process.env.DOG_API_KEY;
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
 }
-
 
 client.on('ready', () => {
     console.log(`MeowBot is online!`);
@@ -81,7 +77,7 @@ client.on('message', async msg => {
     }
 
 
-    /// ASYNC FUNCTIONS BELOW /////
+    /// HELPER FUNCTIONS BELOW /////
 /////////////////////////////////////////////////////////////////////////////////////////   
 
 // sends meme to channel
@@ -103,15 +99,9 @@ client.on('message', async msg => {
         const num = randomNum(1, 100);
         try {
             var response = await r2.get('https://meme-api.herokuapp.com/gimme').json
-           // https://meme-api.herokuapp.com/gimme
-           // https://api.imgflip.com/get_memes
-            
         } catch (e) {
             console.log(e)
         }
-        //console.log(response.data.memes[num]);
-       // return response.data.memes[num];
-       //console.log(response)
        return response;
     }   
 
@@ -122,7 +112,7 @@ client.on('message', async msg => {
 
             console.log(j);
 
-            msg.channel.send(j.joke);
+            msg.channel.send('***' + j.joke);
 
         } catch (error) {
             console.log(error)
@@ -188,9 +178,8 @@ client.on('message', async msg => {
             var breed = image.breeds[0];
 
             console.log('message processed', 'showing', breed)
-            // use the *** to make text bold, and * to make italic
+            
             message.channel.send("***" + breed.name + "*** \r *" + breed.temperament + "*", { files: [image.url] });
-            // if you didn't want to see the text, just send the file
 
         } catch (error) {
             console.log(error)

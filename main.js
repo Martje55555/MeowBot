@@ -28,9 +28,9 @@ client.on('message', async msg => {
     if (command === 'speak') {
         const num = randomNum(1, 3);
         if (num === 1) {
-            msg.channel.send('MEOW', { tts: true });
+            msg.channel.send('**MEOW**', { tts: true });
         } else {
-            msg.channel.send('WOOF', { tts: true });
+            msg.channel.send('**WOOF**', { tts: true });
         }
     }
 
@@ -59,7 +59,7 @@ client.on('message', async msg => {
     // sends a random dumb quote trump has said in the past
     if(command === 'trump') {
         const comment = await fetch('https://api.tronalddump.io/random/quote').then(response => response.json());
-        msg.channel.send(`Donald Trump ${comment.appeared_at}\n${comment.value}`);
+        msg.channel.send('```' + 'Donald Trump' + comment.appeared_at + '\n' + comment.value + '```');
     }
 
     // TO DO // pokemon api attemp to send pokemon name, abilities and stats
@@ -73,7 +73,7 @@ client.on('message', async msg => {
     }
 
     if(command === 'help') {
-        msg.channel.send(`^speak\n^cat\n^dog\n^chuck\n^joke\n^meme\n^trump`);
+        msg.channel.send('```1. ^speak\n2. ^cat\n3. ^dog\n4. ^chuck\n5. ^joke\n6. ^meme\n7. ^trump```');
     }
 
 
@@ -150,7 +150,7 @@ client.on('message', async msg => {
 
             console.log(joke);
 
-            msg.channel.send(joke.value);
+            msg.channel.send('```' + joke.value + '```');
 
         } catch (error) {
             console.log(error)

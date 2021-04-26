@@ -112,7 +112,7 @@ client.on('message', async msg => {
 
             console.log(j);
 
-            msg.channel.send('***' + j.joke);
+            msg.channel.send("***" + j.joke);
 
         } catch (error) {
             console.log(error)

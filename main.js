@@ -212,6 +212,7 @@ client.on('message', async msg => {
         return response;
 
     }
+        // sends 
 });
 
 client.login(TOKEN);

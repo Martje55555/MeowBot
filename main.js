@@ -12,6 +12,8 @@ const DOG_API_KEY = process.env.DOG_API_KEY;
 const token = config.token;
 const dog = config.dog_apikey;
 const figlet = require('figlet');
+
+
 // function returns random number
 const randomNum = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min);
@@ -88,6 +90,13 @@ client.on('message', async msg => {
            if(data.length > 2000) return msg.channel.send('```Please provide text smaller than 2000 characters```');
            msg.channel.send('```' + data + '```');
        })
+    }
+
+    // command to send pictures of a monkey
+    if(command == 'monkey') {
+        const num = randomNum(1,2000000);
+        const extra = args.join("");
+        msg.channel.send(`https://www.placemonkeys.com/500?${args+'&'}random=${num}`);
     }
 
     if(command === 'help') {
@@ -232,30 +241,6 @@ client.on('message', async msg => {
         return response;
 
     }
-        // handles monkey api
-    //     async function callMonkey(msg) {
-    //         try {
-    
-    //             var m = await memeReceived();
-    
-    //             console.log(m);
-    
-    //             msg.channel.send({files: m});
-    
-    //         } catch (error) {
-    //             console.log(error)
-    //         }
-    //     }
-    // // handles receiving meme
-    //     async function monkeyReceived() {
-    //        // const num = randomNum(1, 100);
-    //         try {
-    //             var response = await r2.get('https://www.placemonkeys.com/500?random').json
-    //         } catch (e) {
-    //             console.log(e)
-    //         }
-    //        return response;
-    //     }   
 });
 
 // PRODUCTION

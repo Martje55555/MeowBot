@@ -100,7 +100,7 @@ client.on('message', async msg => {
     }
 
     if(command === 'help') {
-        msg.channel.send('```1. ^speak\n2. ^cat\n3. ^dog\n4. ^chuck\n5. ^joke\n6. ^meme\n7. ^trump \n8. ^ascii text-here```');
+        msg.channel.send('```1. ^speak\n2. ^cat\n3. ^dog\n4. ^monkey or ^monkey spooky\n5. ^chuck\n5. ^joke\n6. ^meme\n7. ^trump \n8. ^ascii text-here```');
     }
 
 
